@@ -1,0 +1,188 @@
+extends dashboardFrame.pug
+
+block content
+    body
+
+        #wrapper.d-flex
+            include includes/sidebar.pug
+            // Page Content
+            #page-content-wrapper
+                nav.navbar.navbar-expand-lg.navbar-dark.bg-primary
+                    button#menu-toggle.btn.btn-primary Toggle Menu
+                    button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarSupportedContent', aria-controls='navbarSupportedContent', aria-expanded='false', aria-label='Toggle navigation')
+                        span.navbar-toggler-icon
+                    #navbarSupportedContent.collapse.navbar-collapse
+                        ul.navbar-nav.ml-auto.mt-2.mt-lg-0
+                            li.nav-item.active
+                                a.nav-link(href='#')
+                                    | Home 
+                                    span.sr-only (current)
+                            li.nav-item
+                                a.nav-link(href='#') Link
+                            li.nav-item.dropdown
+                                a#navbarDropdown.nav-link.dropdown-toggle(href='#', role='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false') Dropdown
+                                .dropdown-menu.dropdown-menu-right(aria-labelledby='navbarDropdown')
+                                    a.dropdown-item(href='#') Action
+                                    a.dropdown-item(href='#') Another action
+                                    .dropdown-divider
+                                    a.dropdown-item(href='#') Something else here
+                .jumbotron
+                    .container
+                        h3.mb-3 Battery Encoding Monitoring
+                    .container
+                        .row
+                            .col.d-flex.align-items-stretch
+                                .card.text-white.bg-primary.mb-3(style='max-width: 20rem;')
+                                    .card-header UNIT REPORTING
+                                    .card-body
+                                        .container
+                                            .row-sm.mb-3
+                                                .form-group
+                                                label(for='batteryCode') BATTERY CODE
+                                                select#unitCode.form-control
+                                                    option N01
+                                                    option N02
+                                                    option N03
+                                                    option N04
+                                                    option N05
+                                            .row-sm.mb-3
+                                                .form-group
+                                                    input#inputLarge.form-control.form-control.mb-3(type='text', placeholder='Voltage')
+                                            .container
+                                                .col
+                                                    .row-sm.my-1
+                                                        .form-check
+                                                        label.form-check-label
+                                                            input#unitIn.form-check-input(type='radio', name='unitIn', value='unitIn', checked='')
+                                                            |           UNIT IN
+                                                    .row-sm.mb-3                                                
+                                                        .form-check
+                                                        label.form-check-label
+                                                            input#unitOut.form-check-input(type='radio', name='unitOut', value='unitOut')
+                                                            |           UNIT OUT
+                                            .row-sm.mb-3
+                                                .form-group
+                                                label(for='unitCode') UNIT CODE
+                                                select#unitCode.form-control
+                                                    option 201
+                                                    option 202
+                                                    option 203
+                                                    option 204
+                                                    option 205
+                                                    
+                                                button.btn.btn-info.my-3(type='submit') Submit                                                                                    
+                            .col.d-flex.align-items-stretch
+                                .card.text-white.bg-dark.mb-3(style='max-width: 20rem;')
+                                    .card-header CHARGE REPORTING
+                                    .card-body
+                                        .container
+                                            .row-sm.mb-3
+                                                .form-group
+                                                label(for='batteryCode') BATTERY CODE
+                                                select#unitCode.form-control
+                                                    option N01
+                                                    option N02
+                                                    option N03
+                                                    option N04
+                                                    option N05
+                                            .row-sm.mb-3
+                                                .form-group
+                                                    input#inputLarge.form-control.form-control.mb-3(type='text', placeholder='Voltage')
+                                            .container
+                                                .col
+                                                    .row-sm.my-1
+                                                        .form-check
+                                                        label.form-check-label
+                                                            input#chargeIn.form-check-input(type='radio', name='chargeIn', value='chargeIn', checked='')
+                                                            |           CHARGE IN
+                                                    .row-sm.mb-3                                                
+                                                        .form-check
+                                                        label.form-check-label
+                                                            input#chargeOut.form-check-input(type='radio', name='chargeOut', value='chargeOut')
+                                                            |           CHARGE OUT
+                                            .row-sm.mb-3
+                                                .form-group
+                                                label(for='chargerCode') CHARGER CODE
+                                                select#chargerCode.form-control
+                                                    option C1
+                                                    option C2
+                                                    option C3
+                                                button.btn.btn-info.my-3(type='submit') Submit                                                                                                                                                                                                                                                                         
+                            .col.d-flex.align-items-stretch
+                                .card.text-white.bg-dark.mb-3(style='max-width: 20rem;')
+                                    .card-header Electric Meter Encoding
+                                    .card-body
+                                        .container
+                                            .row-sm.mb-3
+                                                .form-group
+                                                    input#inputLarge.form-control.form-control.mb-3(type='text', placeholder='Enter meter reading')
+                                                    button.btn.btn-primary.mb-3(type='submit') Submit
+                                            .row-sm.mb-1
+                                                h4.text-center.text-white Last meter reading:
+                                            .row-sm
+                                                h1.text-center.text-info 100.00
+                                            .row-sm
+                                                p.text-center.text-muted August 30, 12:00pm 
+                                                
+                                            
+                            .col.d-flex.align-items-stretch
+                                .card.text-white.bg-primary.mb-3(style='max-width: 20rem;')
+                                    .card-header Collection Reporting
+                                    .card-body
+                                        .container
+                                            .row.mb-3
+                                                button.btn.btn-secondary.btn-block(type='button', data-toggle='modal', data-target='#collectionEncoding') Report Collection
+                                            .row-sm
+                                                h4.text-center.text-white Collected Today:
+                                            .row-sm.mb-3
+                                                h1.text-center.text-info 500.00
+                                            .row-sm
+                                                h4.text-center.text-white Collectibles:
+                                            .row-sm
+                                                h1.text-center.text-info 3,000.00
+
+                    //- // Modal Links
+                    //- // Battery Swap
+                    //- include includes/battery.pug
+                    //- // Akelco Reading
+                    //- include includes/akelco.pug
+                    // Collection Encoding
+                    include includes/collection.pug
+                    
+                .container
+                    .row
+                        .col
+                            .container
+                                .row
+                                    table.table.table-hover
+                                        thead
+                                            tr
+                                                th(scope='col') Type
+                                                th(scope='col') Column heading
+                                                th(scope='col') Column heading
+                                                th(scope='col') Column heading
+                                        tbody
+                                            tr.table-dark
+                                                th(scope='row') Active
+                                                td Column content
+                                                td Column content
+                                                td Column content
+                        .col
+                            .container
+                                .row
+                                    table.table.table-hover
+                                        thead
+                                            tr
+                                                th(scope='col') Type
+                                                th(scope='col') Column heading
+                                                th(scope='col') Column heading
+                                                th(scope='col') Column heading
+                                        tbody
+                                            tr.table-dark
+                                                th(scope='row') Active
+                                                td Column content
+                                                td Column content
+                                                td Column content
+            // /#page-content-wrapper
+            // /#wrapper
+            include includes/scripts.pug
